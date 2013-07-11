@@ -19,6 +19,9 @@ private:
     CCSprite *_spacialanomaly;
     CCSprite *_spacialanomaly2;
     
+    // schedule updates
+    void update(float dt);
+    
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
     virtual bool init();

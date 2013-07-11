@@ -64,7 +64,14 @@ bool HelloWorld::init()
     _backgroundNode->addChild(_planetsunrise,-1, bgSpeed, ccp(600, winSize.height*0));
     _backgroundNode->addChild(_spacialanomaly,-1, bgSpeed, ccp(900, winSize.height*0.3));
     _backgroundNode->addChild(_spacialanomaly2,-1, bgSpeed, ccp(1500, winSize.height*0.9));
+    
+    this -> scheduleUpdate();
     return true;
+}
+
+void HelloWorld::update(float dt){
+    CCPoint backgroundScrollVert = ccp(-1000, 0);
+    _backgroundNode -> setPosition(ccpAdd(_backgroundNode -> getPosition(), ccpMult(backgroundScrollVert, dt)));
 }
 
 void HelloWorld::menuCloseCallback(CCObject* pSender)
