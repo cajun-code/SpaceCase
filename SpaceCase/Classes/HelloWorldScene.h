@@ -22,6 +22,10 @@ private:
     
     float _shipPointsPerSecY;
     
+    CCArray* _asteroids;
+    int _nextAsteroid;
+    float _nextAsteroidSpawn;
+    
     // schedule updates
     void update(float dt);
     
@@ -39,6 +43,10 @@ public:
 
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(HelloWorld);
+    
+    float randomValueBetween(float low,float high);
+    void setInvisible(CCNode * node);
+    float getTimeTick();
 };
 
 #endif // __HELLOWORLD_SCENE_H__
