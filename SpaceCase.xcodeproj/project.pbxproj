@@ -225,6 +225,7 @@
 		CE7A02EB178EF72C00807F45 /* Stars1.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE7A02D7178EF72B00807F45 /* Stars1.plist */; };
 		CE7A02EC178EF72C00807F45 /* Stars2.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE7A02D8178EF72B00807F45 /* Stars2.plist */; };
 		CE7A02ED178EF72C00807F45 /* Stars3.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE7A02D9178EF72B00807F45 /* Stars3.plist */; };
+		CE7A02F0178F042800807F45 /* CCParallaxNodeExtras.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7A02EE178F042800807F45 /* CCParallaxNodeExtras.cpp */; };
 		CE7AFF19178EE21500807F45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7AFF18178EE21500807F45 /* QuartzCore.framework */; };
 		CE7AFF1B178EE21500807F45 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7AFF1A178EE21500807F45 /* OpenGLES.framework */; };
 		CE7AFF1D178EE21500807F45 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7AFF1C178EE21500807F45 /* OpenAL.framework */; };
@@ -770,6 +771,8 @@
 		CE7A02D7178EF72B00807F45 /* Stars1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Stars1.plist; path = Resources/Stars1.plist; sourceTree = "<group>"; };
 		CE7A02D8178EF72B00807F45 /* Stars2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Stars2.plist; path = Resources/Stars2.plist; sourceTree = "<group>"; };
 		CE7A02D9178EF72B00807F45 /* Stars3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Stars3.plist; path = Resources/Stars3.plist; sourceTree = "<group>"; };
+		CE7A02EE178F042800807F45 /* CCParallaxNodeExtras.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCParallaxNodeExtras.cpp; path = Classes/CCParallaxNodeExtras.cpp; sourceTree = "<group>"; };
+		CE7A02EF178F042800807F45 /* CCParallaxNodeExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCParallaxNodeExtras.h; path = Classes/CCParallaxNodeExtras.h; sourceTree = "<group>"; };
 		CE7AFF15178EE21500807F45 /* SpaceCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7AFF18178EE21500807F45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CE7AFF1A178EE21500807F45 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1808,6 +1811,8 @@
 				CE7A02BB178EE21B00807F45 /* AppDelegate.cpp */,
 				CE7A02BD178EE21B00807F45 /* HelloWorldScene.h */,
 				CE7A02BE178EE21B00807F45 /* HelloWorldScene.cpp */,
+				CE7A02EE178F042800807F45 /* CCParallaxNodeExtras.cpp */,
+				CE7A02EF178F042800807F45 /* CCParallaxNodeExtras.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2499,6 +2504,7 @@
 				CE7A02AE178EE21B00807F45 /* cpVect.c in Sources */,
 				CE7A02BC178EE21B00807F45 /* AppDelegate.cpp in Sources */,
 				CE7A02BF178EE21B00807F45 /* HelloWorldScene.cpp in Sources */,
+				CE7A02F0178F042800807F45 /* CCParallaxNodeExtras.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
