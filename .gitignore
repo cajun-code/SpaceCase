@@ -1,0 +1,29 @@
+# Xcode
+.DS_Store
+
+xcuserdata
+
+*.swp
+*~.nib
+
+*.zargo~
+build/
+
+*.pbxuser
+*.perspective
+*.perspectivev3
+Pods
+
+#android
+*.class
+bin
+build
+dist
+*.apk
+
+
+# C++
+obj
+*.o 
+*.so
+*.dll
