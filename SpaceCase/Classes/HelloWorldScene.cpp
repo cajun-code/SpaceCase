@@ -98,6 +98,11 @@ bool HelloWorld::init()
     _lives =3;
     double curTime = getTimeTick();
     _gameOverTime = curTime +30000;
+    
+    SimpleAudioEngine::sharedEngine()->playBackgroundMusic("SpaceGame.wav",true);
+    SimpleAudioEngine::sharedEngine()->preloadEffect("explosion_large.wav");
+    SimpleAudioEngine::sharedEngine()->preloadEffect("laser_ship.wav");
+    
     return true;
 }
 
@@ -167,6 +172,7 @@ void HelloWorld::update(float dt){
             if(((CCSprite *) shipLaser)->boundingBox().intersectsRect(((CCSprite *)asteroid)->boundingBox())){
                 ((CCSprite *)shipLaser)->setVisible(false);
                 ((CCSprite *)asteroid)->setVisible(false);
+                SimpleAudioEngine::sharedEngine()->playEffect("explosion_large.wav");
                 continue;
             }
         }
@@ -234,6 +240,7 @@ void HelloWorld::ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* event
     shipLaser->setVisible(true);
     shipLaser->stopAllActions();    
     shipLaser->runAction(CCSequence::create(CCMoveBy::create(0.5,ccp(winSize.width,0)), CCCallFuncN::create(this, callfuncN_selector(HelloWorld::setInvisible)), NULL));  // DO NOT FORGET TO TERMINATE WITH NULL
+    SimpleAudioEngine::sharedEngine()->playEffect("laser_ship.wav");
 }
 
 void HelloWorld::restartTapped(){

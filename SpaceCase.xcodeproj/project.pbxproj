@@ -226,6 +226,9 @@
 		CE7A02EC178EF72C00807F45 /* Stars2.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE7A02D8178EF72B00807F45 /* Stars2.plist */; };
 		CE7A02ED178EF72C00807F45 /* Stars3.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE7A02D9178EF72B00807F45 /* Stars3.plist */; };
 		CE7A02F0178F042800807F45 /* CCParallaxNodeExtras.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7A02EE178F042800807F45 /* CCParallaxNodeExtras.cpp */; };
+		CE7A02F4178F296800807F45 /* explosion_large.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE7A02F1178F296800807F45 /* explosion_large.wav */; };
+		CE7A02F5178F296800807F45 /* laser_ship.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE7A02F2178F296800807F45 /* laser_ship.wav */; };
+		CE7A02F6178F296800807F45 /* SpaceGame.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE7A02F3178F296800807F45 /* SpaceGame.wav */; };
 		CE7AFF19178EE21500807F45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7AFF18178EE21500807F45 /* QuartzCore.framework */; };
 		CE7AFF1B178EE21500807F45 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7AFF1A178EE21500807F45 /* OpenGLES.framework */; };
 		CE7AFF1D178EE21500807F45 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7AFF1C178EE21500807F45 /* OpenAL.framework */; };
@@ -773,6 +776,9 @@
 		CE7A02D9178EF72B00807F45 /* Stars3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Stars3.plist; path = Resources/Stars3.plist; sourceTree = "<group>"; };
 		CE7A02EE178F042800807F45 /* CCParallaxNodeExtras.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCParallaxNodeExtras.cpp; path = Classes/CCParallaxNodeExtras.cpp; sourceTree = "<group>"; };
 		CE7A02EF178F042800807F45 /* CCParallaxNodeExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCParallaxNodeExtras.h; path = Classes/CCParallaxNodeExtras.h; sourceTree = "<group>"; };
+		CE7A02F1178F296800807F45 /* explosion_large.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = explosion_large.wav; path = Resources/explosion_large.wav; sourceTree = "<group>"; };
+		CE7A02F2178F296800807F45 /* laser_ship.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = laser_ship.wav; path = Resources/laser_ship.wav; sourceTree = "<group>"; };
+		CE7A02F3178F296800807F45 /* SpaceGame.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = SpaceGame.wav; path = Resources/SpaceGame.wav; sourceTree = "<group>"; };
 		CE7AFF15178EE21500807F45 /* SpaceCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7AFF18178EE21500807F45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CE7AFF1A178EE21500807F45 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1864,6 +1870,9 @@
 		CE7AFF29178EE21500807F45 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE7A02F1178F296800807F45 /* explosion_large.wav */,
+				CE7A02F2178F296800807F45 /* laser_ship.wav */,
+				CE7A02F3178F296800807F45 /* SpaceGame.wav */,
 				CE7A02C5178EF72B00807F45 /* Arial.fnt */,
 				CE7A02C6178EF72B00807F45 /* Arial.png */,
 				CE7A02C7178EF72B00807F45 /* bg_front_spacedust.png */,
@@ -2245,6 +2254,9 @@
 				CE7A02EB178EF72C00807F45 /* Stars1.plist in Resources */,
 				CE7A02EC178EF72C00807F45 /* Stars2.plist in Resources */,
 				CE7A02ED178EF72C00807F45 /* Stars3.plist in Resources */,
+				CE7A02F4178F296800807F45 /* explosion_large.wav in Resources */,
+				CE7A02F5178F296800807F45 /* laser_ship.wav in Resources */,
+				CE7A02F6178F296800807F45 /* SpaceGame.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
