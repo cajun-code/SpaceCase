@@ -66,6 +66,11 @@ bool HelloWorld::init()
     _backgroundNode->addChild(_spacialanomaly2,-1, bgSpeed, ccp(1500, winSize.height*0.9));
     
     this -> scheduleUpdate();
+    // Add Stars
+    HelloWorld::addChild(CCParticleSystemQuad::create("Stars1.plist"));
+    HelloWorld::addChild(CCParticleSystemQuad::create("Stars2.plist"));
+    HelloWorld::addChild(CCParticleSystemQuad::create("Stars3.plist"));
+    
     return true;
 }
 
