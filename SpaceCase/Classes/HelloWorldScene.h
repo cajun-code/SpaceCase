@@ -29,8 +29,11 @@ private:
     CCArray* _shipLasers;
     int _nextShipLaser;
     
+    int _lives;
+    
     // schedule updates
     void update(float dt);
+    
     
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)

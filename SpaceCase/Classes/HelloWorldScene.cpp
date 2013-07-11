@@ -150,6 +150,28 @@ void HelloWorld::update(float dt){
         asteroid->runAction(CCSequence::create(CCMoveBy::create(randDuration, ccp(-winSize.width-asteroid->getContentSize().width,0)), CCCallFuncN::create(this, callfuncN_selector(HelloWorld::setInvisible)), NULL )); // DO NOT FORGET TO TERMINATE WITH NULL (unexpected in C++)
                                                
     }
+    
+    // Asteroids
+    CCObject* asteroid;
+    CCObject* shipLaser;
+    CCARRAY_FOREACH(_asteroids, asteroid){
+        if(!((CCSprite *) asteroid)->isVisible())
+            continue;
+        CCARRAY_FOREACH(_shipLasers, shipLaser){
+            if(!((CCSprite *) shipLaser)->isVisible())
+                continue;
+            if(((CCSprite *) shipLaser)->boundingBox().intersectsRect(((CCSprite *)asteroid)->boundingBox())){
+                ((CCSprite *)shipLaser)->setVisible(false);
+                ((CCSprite *)asteroid)->setVisible(false);
+                continue;
+            }
+        }
+        if(_ship->boundingBox().intersectsRect(((CCSprite *)asteroid)->boundingBox())){
+            ((CCSprite *)asteroid)->setVisible(false);
+            _ship->runAction( CCBlink::create(1.0,9));
+            _lives--;
+        }
+    }
 }
 
 void HelloWorld::didAccelerate(CCAcceleration* pAccelerationValue){
