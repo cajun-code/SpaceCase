@@ -3,19 +3,28 @@
 
 #include "cocos2d.h"
 
-class HelloWorld : public cocos2d::CCLayer
+using namespace cocos2d;
+
+class HelloWorld : public CCLayer
 {
     
 private:
-    cocos2d::CCSpriteBatchNode* _batchNode;
-    cocos2d::CCSprite* _ship;
+    CCSpriteBatchNode* _batchNode;
+    CCSprite* _ship;
+    CCParallaxNode *_backgroundNode;
+    CCSprite *_spacedust1;
+    CCSprite *_spacedust2;
+    CCSprite *_planetsunrise;
+    CCSprite *_galaxy;
+    CCSprite *_spacialanomaly;
+    CCSprite *_spacialanomaly2;
     
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
     virtual bool init();
 
     // there's no 'id' in cpp, so we recommend to return the class instance pointer
-    static cocos2d::CCScene* scene();
+    static CCScene* scene();
     
     // a selector callback
     void menuCloseCallback(CCObject* pSender);

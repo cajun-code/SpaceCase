@@ -41,6 +41,29 @@ bool HelloWorld::init()
     _ship->setPosition(ccp(winSize.width*0.1, winSize.height*0.5));
     _batchNode->addChild(_ship,1);
     
+    // 1) Create the CCParallaxNode
+    _backgroundNode = CCParallaxNode::create();
+    this->addChild(_backgroundNode,-1);
+    
+    // 2) Create the sprites will be added to the CCParallaxNode
+    _spacedust1 = CCSprite::create("bg_front_spacedust.png");
+    _spacedust2 = CCSprite::create("bg_front_spacedust.png");
+    _planetsunrise = CCSprite::create("bg_planetsunrise.png");
+    _galaxy = CCSprite::create("bg_galaxy.png");
+    _spacialanomaly = CCSprite::create("bg_spacialanomaly.png");
+    _spacialanomaly2 = CCSprite::create("bg_spacialanomaly2.png");
+    
+    // 3) Determine relative movement speeds for space dust and background
+    CCPoint dustSpeed = ccp(0.1,0.1);
+    CCPoint bgSpeed = ccp(0.05,0.05);
+    
+    // 4) Add children to CCParallaxNode
+    _backgroundNode->addChild(_spacedust1,0, dustSpeed, ccp(0,winSize.height/2));
+    _backgroundNode->addChild(_spacedust2,0, dustSpeed, ccp( _spacedust1->getContentSize().width,winSize.height/2));
+    _backgroundNode->addChild(_galaxy,-1, bgSpeed, ccp(0, winSize.height*0.7));
+    _backgroundNode->addChild(_planetsunrise,-1, bgSpeed, ccp(600, winSize.height*0));
+    _backgroundNode->addChild(_spacialanomaly,-1, bgSpeed, ccp(900, winSize.height*0.3));
+    _backgroundNode->addChild(_spacialanomaly2,-1, bgSpeed, ccp(1500, winSize.height*0.9));
     return true;
 }
 
