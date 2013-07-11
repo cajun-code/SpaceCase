@@ -74,7 +74,7 @@ bool HelloWorld::init()
     //use accelerometer
     this->setAccelerometerEnabled(true);
     
-    // Add Astroride
+    // Add Asteroids
     #define KNUMASTEROIDS 15
     _asteroids = new CCArray();
     for(int i =0; i < KNUMASTEROIDS;++i){
@@ -84,6 +84,16 @@ bool HelloWorld::init()
         _asteroids->addObject(asteroid);
     }
     
+    // Shoot Lasers
+    #define KNUMLASERS 5
+    _shipLasers = new CCArray();
+    for(int i =0; i < KNUMLASERS;++i){
+        CCSprite *shipLaser = CCSprite::createWithSpriteFrameName("laserbeam_blue.png");
+        shipLaser->setVisible(false);
+        _batchNode->addChild(shipLaser);
+        _shipLasers->addObject(shipLaser);
+    }
+    this->setTouchEnabled(true);
     return true;
 }
 
@@ -179,4 +189,15 @@ void HelloWorld::menuCloseCallback(CCObject* pSender)
 
 void HelloWorld::setInvisible(CCNode * node){
     node->setVisible(false);
+}
+
+void HelloWorld::ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* event){
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    CCSprite *shipLaser =(CCSprite *)_shipLasers->objectAtIndex(_nextShipLaser++);
+    if( _nextShipLaser >= _shipLasers->count())
+        _nextShipLaser =0;
+    shipLaser->setPosition( ccpAdd( _ship->getPosition(), ccp(shipLaser->getContentSize().width/2,0)));
+    shipLaser->setVisible(true);
+    shipLaser->stopAllActions();    
+    shipLaser->runAction(CCSequence::create(CCMoveBy::create(0.5,ccp(winSize.width,0)), CCCallFuncN::create(this, callfuncN_selector(HelloWorld::setInvisible)), NULL));  // DO NOT FORGET TO TERMINATE WITH NULL
 }

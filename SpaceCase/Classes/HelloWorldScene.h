@@ -26,6 +26,9 @@ private:
     int _nextAsteroid;
     float _nextAsteroidSpawn;
     
+    CCArray* _shipLasers;
+    int _nextShipLaser;
+    
     // schedule updates
     void update(float dt);
     
@@ -47,6 +50,8 @@ public:
     float randomValueBetween(float low,float high);
     void setInvisible(CCNode * node);
     float getTimeTick();
+    
+    virtual void ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
 };
 
 #endif // __HELLOWORLD_SCENE_H__
