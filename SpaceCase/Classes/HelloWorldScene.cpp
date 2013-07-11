@@ -71,8 +71,13 @@ bool HelloWorld::init()
     HelloWorld::addChild(CCParticleSystemQuad::create("Stars2.plist"));
     HelloWorld::addChild(CCParticleSystemQuad::create("Stars3.plist"));
     
+    //use accelerometer
+    this->setAccelerometerEnabled(true);
+    
     return true;
 }
+
+
 
 void HelloWorld::update(float dt){
     CCPoint backgroundScrollVert = ccp(-1000, 0);
@@ -102,6 +107,29 @@ void HelloWorld::update(float dt){
             _backgroundNode->incrementOffset(ccp(2000,0),background);
         }
     }
+    
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    float maxY = winSize.height- _ship->getContentSize().height/2;
+    float minY = _ship->getContentSize().height/2;
+    float diff =(_shipPointsPerSecY * dt);
+    float newY = _ship->getPosition().y+ diff;newY = MIN(MAX(newY, minY), maxY);
+    _ship->setPosition(ccp(_ship->getPosition().x, newY));
+}
+
+void HelloWorld::didAccelerate(CCAcceleration* pAccelerationValue){
+#define KFILTERINGFACTOR 0.1
+#define KRESTACCELX -0.6
+#define KSHIPMAXPOINTSPERSEC (winSize.height*0.5)        
+#define KMAXDIFFX 0.2   
+    double rollingX;
+    // Cocos2DX inverts X and Y accelerometer depending on device orientation// in landscape mode right x=-y and y=x !!! (Strange and confusing choice)
+    pAccelerationValue->x = pAccelerationValue->y;
+    rollingX =(pAccelerationValue->x * KFILTERINGFACTOR)+(rollingX *(1.0- KFILTERINGFACTOR));
+    float accelX = pAccelerationValue->x - rollingX;
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    float accelDiff = accelX - KRESTACCELX;
+    float accelFraction = accelDiff / KMAXDIFFX;
+    _shipPointsPerSecY = KSHIPMAXPOINTSPERSEC * accelFraction;
 }
 
 void HelloWorld::menuCloseCallback(CCObject* pSender)

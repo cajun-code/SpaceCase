@@ -20,6 +20,8 @@ private:
     CCSprite *_spacialanomaly;
     CCSprite *_spacialanomaly2;
     
+    float _shipPointsPerSecY;
+    
     // schedule updates
     void update(float dt);
     
@@ -32,6 +34,8 @@ public:
     
     // a selector callback
     void menuCloseCallback(CCObject* pSender);
+    
+    virtual void didAccelerate(CCAcceleration* pAccelerationValue);
 
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(HelloWorld);
