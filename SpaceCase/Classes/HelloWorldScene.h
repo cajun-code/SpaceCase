@@ -6,6 +6,11 @@
 
 using namespace cocos2d;
 
+typedef enum{
+    KENDREASONWIN,
+    KENDREASONLOSE
+} EndReason;
+
 class HelloWorld : public CCLayer
 {
     
@@ -31,9 +36,14 @@ private:
     
     int _lives;
     
+    double _gameOverTime;
+    bool _gameOver;
+    
     // schedule updates
     void update(float dt);
     
+    void endScene(EndReason endReason);
+    void restartTapped();
     
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)

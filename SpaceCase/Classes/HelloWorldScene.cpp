@@ -94,6 +94,10 @@ bool HelloWorld::init()
         _shipLasers->addObject(shipLaser);
     }
     this->setTouchEnabled(true);
+    
+    _lives =3;
+    double curTime = getTimeTick();
+    _gameOverTime = curTime +30000;
     return true;
 }
 
@@ -172,6 +176,14 @@ void HelloWorld::update(float dt){
             _lives--;
         }
     }
+    
+    if(_lives <=0){
+        _ship->stopAllActions();
+        _ship->setVisible(false);
+        this->endScene(KENDREASONLOSE);
+    }else if(curTimeMillis >= _gameOverTime){
+        this->endScene(KENDREASONWIN);
+    }
 }
 
 void HelloWorld::didAccelerate(CCAcceleration* pAccelerationValue){
@@ -222,4 +234,40 @@ void HelloWorld::ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* event
     shipLaser->setVisible(true);
     shipLaser->stopAllActions();    
     shipLaser->runAction(CCSequence::create(CCMoveBy::create(0.5,ccp(winSize.width,0)), CCCallFuncN::create(this, callfuncN_selector(HelloWorld::setInvisible)), NULL));  // DO NOT FORGET TO TERMINATE WITH NULL
+}
+
+void HelloWorld::restartTapped(){
+    CCDirector::sharedDirector()->replaceScene(
+                                               CCTransitionZoomFlipX::create(0.5, this->scene()));
+    // reschedule
+    this->scheduleUpdate();
+}
+
+void HelloWorld::endScene( EndReason endReason ){
+    if(_gameOver)
+        return;
+    _gameOver =true;
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    char message[10]="You Win";
+    if( endReason == KENDREASONLOSE)
+        strcpy(message,"You Lose");
+    CCLabelBMFont * label ;
+    label = CCLabelBMFont::create(message,"Arial.fnt");
+    label->setScale(0.1);
+    label->setPosition(ccp(winSize.width/2, winSize.height*0.6));
+    this->addChild(label);
+    CCLabelBMFont * restartLabel;
+    strcpy(message,"Restart");
+    restartLabel = CCLabelBMFont::create(message,"Arial.fnt");
+    CCMenuItemLabel *restartItem = CCMenuItemLabel::create(restartLabel, this, menu_selector(HelloWorld::restartTapped));
+    restartItem->setScale(0.1);
+    restartItem->setPosition( ccp(winSize.width/2, winSize.height*0.4));
+    CCMenu *menu = CCMenu::create(restartItem, NULL);
+    menu->setPosition(CCPointZero);
+    this->addChild(menu);
+    // clear label and menu
+    restartItem->runAction(CCScaleTo::create(0.5,1.0));
+    label ->runAction(CCScaleTo::create(0.5,1.0));
+    // Terminate update callback
+    this->unscheduleUpdate();
 }
